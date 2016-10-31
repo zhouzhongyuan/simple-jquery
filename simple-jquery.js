@@ -64,7 +64,7 @@ domElement.prototype.init = function () {
     switch (this.selector[0]){
         case '<':
             // create element
-            var matches = this.selector.match(/([\w]*)/);
+            var matches = this.selector.match(/<([\w-]*)>/);
             if(matches === null || matches === undefined){
                 throw 'Invalid Selector / Node';
                 return false;
