@@ -77,8 +77,11 @@ domElement.prototype.init = function () {
     }
 }
 
-
-
+$ = function (selector) {
+    var el = new domElement(selector);
+    el.init();
+    return el;
+}
 
 
 
