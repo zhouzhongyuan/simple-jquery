@@ -36,3 +36,34 @@ domElement.prototype.eventHandler = {
         })
     }
 }
+domElement.prototype.on = function (event, callback) {
+    this.eventHandler.bindEvent(event, callback, this.element);
+}
+domElement.prototype.off = function (event, callback) {
+    this.eventHandler.unbindEvent(event, callback, this.element);
+}
+domElement.prototype.val = function (newVal) {
+    return (newVal !== undefined ? this.element.value = newVal : this.element.value);
+}
+domElement.prototype.append = function (html) {
+    this.element.innerHTML = this.element.innerHTML + html;
+}
+domElement.prototype.prepend = function (html) {
+    this.element.innerHTML = html + this.element.innerHTML;
+}
+domElement.prototype.html = function (html) {
+    if(html === undefined){
+        return this.element.innerHTML;
+    }else{
+        this.element.innerHTML = html;
+    }
+}
+
+
+
+
+
+
+
+
+
