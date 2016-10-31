@@ -23,5 +23,16 @@ domElement.prototype.eventHandler = {
         return this.events.filter(function(evt){
             return (evt.type === event);
         })[0];
+    },
+    unbindEvent: function (event, targetElement) {
+        // search events
+        var foundEvent = this.findEvent(event);
+        if(foundEvent !== undefined){
+            targetElement.removeEventListener(event, foundEvent.event, false);
+        }
+        // update the events array
+        this.events = this.events.filter(function (evt) {
+            return (evt.type !== event);
+        })
     }
 }
